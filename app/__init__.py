@@ -10,7 +10,7 @@ def create_app():
     app.config.from_object(Config)
 
     # Initialize CORS
-    CORS(app, origins=['http://localhost:5173'], supports_credentials=True)
+    CORS(app)
     cache.init_app(app, config={'CACHE_TYPE': 'simple'})
 
 
