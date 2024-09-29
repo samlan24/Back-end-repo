@@ -10,16 +10,10 @@ def create_app():
     app.config.from_object(Config)
 
     # Initialize CORS
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": ["https://front-end-repo-seven.vercel.app"]}})
     cache.init_app(app, config={'CACHE_TYPE': 'simple'})
 
-
-
-
     # Register the blueprints
-
-
-
     from .music import music
     app.register_blueprint(music, url_prefix='/music')
 
